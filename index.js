@@ -55,6 +55,3 @@ app.get('/api/add/mobil', (req, res) => {
 app.listen(port, () => {
 	console.log(`Server running in ${port}`);
 });
-
-module.exports = app;
-module.exports.handler = serverless(app);
