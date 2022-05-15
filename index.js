@@ -2,12 +2,14 @@ const express = require("express");
 const XMLHttpRequest = require('xhr2');
 const bodyParser = require("body-parser");
 const DBconnect = require("./src/config/db");
+const serverless = require("serverless-http");
 const userRoutes = require("./src/routes/userRoutes");
 const mobilRoutes = require("./src/routes/mobilRoutes");
 require("dotenv").config();
 
 DBconnect();
 const app = express();
+const router = express.Router();
 const xhr = new XMLHttpRequest();
 const port = process.env.PORT || 3000
 app.use(bodyParser.json());
@@ -20,6 +22,7 @@ app.get('/', (req, res) => {
   })
 app.use("/api/user", userRoutes);
 app.use("/api/mobil", mobilRoutes);
+app.use(`/.netlify/functions/api`, router);
 
 app.get('/api/add/user', (req, res) => {
     const nama = req.query.nama
@@ -52,3 +55,6 @@ app.get('/api/add/mobil', (req, res) => {
 app.listen(port, () => {
 	console.log(`Server running in ${port}`);
 });
+
+module.exports = app;
+module.exports.handler = serverless(app);
