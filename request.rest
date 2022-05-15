@@ -1,0 +1,78 @@
+# GET ALL USER
+GET http://localhost:37200/api/user
+
+###
+
+# GET DETAIL USER
+GET http://localhost:37200/api/user/6280aa8233b172e0d34ee1eb
+
+###
+
+# CREATE USER
+POST http://localhost:3000/api/user
+
+Content-Type: application/json
+
+{
+    "nama" : "dimas",
+    "alamat": "jakarta"
+}
+
+###
+
+# UPDATE USER
+PATCH http://localhost:37200/api/user/627f794f3ca94e530a1096e3
+Content-Type: application/json
+
+{
+    "nama" : "argya",
+    "alamat": "bandung"
+}
+
+###
+
+# DELETE USER
+DELETE http://localhost:37200/api/user/6280aa8233b172e0d34ee1eb
+
+
+###
+
+# GET ALL MOBIL
+GET http://localhost:37200/api/mobil
+
+###
+
+# GET DETAIL MOBIL
+GET http://localhost:37200/api/mobil/628091141d0af1f17c2a6876
+
+###
+
+# CREATE MOBIL
+POST https://api-argya.herokuapp.com/api/mobil
+Content-Type: application/json
+
+{
+    "nama" : "tesla",
+    "tahun": "2020",
+    "harga":"10000",
+    "user": "6280aa8233b172e0d34ee1eb"
+}
+
+###
+
+# UPDATE MOBIL
+PATCH http://localhost:37200/api/mobil/627f89025ee3b7538334821b 
+Content-Type: application/json
+
+{
+    "nama" : "honda jazz",
+    "tahun": "2020",
+    "harga":"35000",
+    "user": "627f794f3ca94e530a1096e3"
+}
+
+###
+
+#DELETE MOBIL
+
+DELETE http://localhost:37200/api/mobil/62808c278e8d83ee3824bdb6
